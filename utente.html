@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utente</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="modernNormalize.css" />
+  </head>
+  <body>
+    <section id="inserisci-notizia">
+      <h2 class="titoliSezioni">Inserisci una Notizia</h2>
+      <form id="news-form">
+        <div class="form-group">
+          <label for="image-url">Carica un'immagine:</label>
+          <input
+            type="file"
+            class="form-control"
+            id="image-url"
+            accept="image/*"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="news-title">Titolo:</label>
+          <input type="text" class="form-control" id="news-title" required />
+        </div>
+        <div class="form-group">
+          <label for="news-description">Descrizione:</label>
+          <textarea
+            class="form-control"
+            id="news-description"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="news-link">Link:</label>
+          <input type="url" class="form-control" id="news-link" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Inserisci Notizia</button>
+      </form>
+    </section>
+    <div id="news-list" class="row"></div>
+    <!-- Elemento per visualizzare le notizie -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="roboto.js"></script>
+  </body>
+</html>

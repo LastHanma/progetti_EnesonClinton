@@ -1,0 +1,34 @@
+[
+    {
+        "id_notizia": "3",
+        "image_url": "uploads\/66487da839bf7.jpeg",
+        "titolo": "Ai nell&#039;arte",
+        "descrizione": "AAAA",
+        "link": "https:\/\/www.bing.com\/search?pglt=41&amp;q=museo+intelligenza+artificiale&amp;cvid=781349e8d4044031a4f138b3e150cd12&amp;gs_lcrp=EgZjaHJvbWUqBggBEAAYQDIGCAAQRRg5MgYIARAAGEAyBggCEAAYQNIBCDgzMzRqMGoxqAIAsAIA&amp;FORM=ANNTA1&amp;PC=ACTS",
+        "id_utente": "1"
+    },
+    {
+        "id_notizia": "4",
+        "image_url": "uploads\/66487e3c578dd.webp",
+        "titolo": "Ai nell&#039;arte mugi",
+        "descrizione": " hvhvhvv",
+        "link": "https:\/\/www.bing.com\/search?pglt=41&amp;q=museo+intelligenza+artificiale&amp;cvid=781349e8d4044031a4f138b3e150cd12&amp;gs_lcrp=EgZjaHJvbWUqBggBEAAYQDIGCAAQRRg5MgYIARAAGEAyBggCEAAYQNIBCDgzMzRqMGoxqAIAsAIA&amp;FORM=ANNTA1&amp;PC=ACTS",
+        "id_utente": "2"
+    },
+    {
+        "id_notizia": "5",
+        "image_url": "uploads\/66487e6e6b03c.jpg",
+        "titolo": "roronoa",
+        "descrizione": "aaaa",
+        "link": "https:\/\/www.bing.com\/search?pglt=41&amp;q=museo+intelligenza+artificiale&amp;cvid=781349e8d4044031a4f138b3e150cd12&amp;gs_lcrp=EgZjaHJvbWUqBggBEAAYQDIGCAAQRRg5MgYIARAAGEAyBggCEAAYQNIBCDgzMzRqMGoxqAIAsAIA&amp;FORM=ANNTA1&amp;PC=ACTS",
+        "id_utente": "3"
+    },
+    {
+        "id_notizia": "6",
+        "image_url": "uploads\/6648a73da6bf9.jpeg",
+        "titolo": "IL GRUPPO MIGLIORE",
+        "descrizione": "WE ARE NUMBER 1",
+        "link": "https:\/\/www.google.com",
+        "id_utente": "4"
+    }
+]

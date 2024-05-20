@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Sito sull'Intelligenza Artificiale</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="modernNormalize.css" />
+
+    <style>
+      /* Aggiungi qui eventuali stili personalizzati */
+      .contenitore {
+        /* border: 3px solid black; */
+      }
+
+      b a {
+        text-decoration: none;
+        color: black;
+      }
+
+      b a:hover {
+        text-decoration: underline;
+      }
+
+      .contenitore .paragrafo {
+        /* max-width: 60ch; */
+      }
+
+      .titoliSezioni {
+        font-size: 2.4rem;
+        font-weight: bold;
+      }
+
+      .logo {
+        font-size: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-weight: bold;
+      }
+
+      .logoAi {
+        color: #566b78;
+      }
+
+      .btn_clr {
+        background-color: #566b78;
+      }
+
+      .remove-news {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      @media (min-width: 320px) {
+        .logo {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (min-width: 400px) {
+        .logo {
+          font-size: 2rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .logo {
+          font-size: 3rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="datelefono.html"
+          ><span class="logo">discover<span class="logoAi">AI</span></span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#storia">Storia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#notizie">Notizie</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pro-contro">Pro e Contro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contatti">Contatti</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container mt-4">
+      <section id="news_utente">
+        <h2 class="titoliSezioni">News Utente</h2>
+        <!-- Aggiungi qui una raccolta di risorse utili -->
+        <h2 class="titoliSezioni">Inserisci una Notizia</h2>
+        <form
+          id="news-form"
+          action="inviaNotizia.php"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="form-group">
+            <label for="image-url">Carica un'immagine:</label>
+            <input
+              type="file"
+              class="form-control"
+              name="image"
+              id="image-url"
+              accept="image/*"
+            />
+          </div>
+          <div class="form-group">
+            <label for="news-title">Titolo:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="title"
+              id="news-title"
+            />
+          </div>
+          <div class="form-group">
+            <label for="news-description">Descrizione:</label>
+            <textarea
+              class="form-control"
+              name="description"
+              id="news-description"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="news-link">Link:</label>
+            <input type="url" class="form-control" name="link" id="news-link" />
+          </div>
+          <button
+            type="button"
+            id="inserisciBTN"
+            class="btn_clr btn btn-primary"
+          >
+            Inserisci Notizia
+          </button>
+          <button type="button" id="eliminaBTN" class="btn btn-primary">
+            Elimina Notizia
+          </button>
+          <button type="submit" id="inviaNotizia" class="btn btn-primary">
+            Invia Notizia
+          </button>
+        </form>
+
+        <div id="news-lista" class="row">
+          <!-- Qui verranno visualizzate le notizie in tempo reale tramite JavaScript -->
+        </div>
+      </section>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Funzione per gestire l'invio del modulo di inserimento della notizia
+    inserisciBTN = document.getElementById("inserisciBTN");
+    eliminaBTN = document.getElementById("eliminaBTN");
+    inviaNotizia = document.getElementById("inviaNotizia");
+
+    inserisciBTN.addEventListener("click", function (event) {
+      event.preventDefault(); // Impedisci il comportamento predefinito del modulo
+
+      // Ottieni i valori inseriti dall'utente
+      const imageUrl = document.getElementById("image-url").files[0]; // Ottieni il file immagine
+      const newsTitle = document.getElementById("news-title").value;
+      const newsDescription = document.getElementById("news-description").value;
+      const newsLink = document.getElementById("news-link").value;
+
+      // Creazione di un oggetto URL per l'immagine selezionata
+      const imageURLObject = URL.createObjectURL(imageUrl);
+
+      // Aggiungi la nuova notizia alla lista
+      const newsListElement = document.getElementById("news-lista");
+      const articleElement = document.createElement("div");
+      const newsId = generateUniqueId(); // Genera un ID univoco per la notizia
+      articleElement.setAttribute("id", "news-" + newsId); // Imposta l'ID univoco per la notizia
+      articleElement.classList.add("col-md-6", "mb-4");
+      articleElement.innerHTML = `
+    <div class="card">
+      <img src="${imageURLObject}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${newsTitle}</h5>
+        <p class="card-text">${newsDescription}</p>
+        <div class="w-100 d-flex justify-content-between align-items-center">
+          <a href="${newsLink}" class="btn btn-primary">Leggi di più</a>
+          <button class="btn btn-danger delete-btn" data-id="${newsId}">Elimina Notizia</button> <!-- Aggiungi data-id -->
+        </div>
+      </div>
+    </div>
+  `;
+      newsListElement.appendChild(articleElement);
+
+      // Resetta il modulo dopo l'inserimento della notizia
+      document.getElementById("news-form").reset();
+    });
+
+    // Aggiungi gestore di eventi per il clic sul pulsante "Elimina"
+    document.addEventListener("click", function (event) {
+      if (event.target.classList.contains("delete-btn")) {
+        const newsId = event.target.dataset.id;
+        const newsElement = document.getElementById("news-" + newsId);
+        if (newsElement) {
+          newsElement.classList.add("remove-news");
+          setTimeout(() => {
+            newsElement.remove(); // Rimuovi l'elemento dalla lista delle notizie
+          }, 300); // Ritardiamo la rimozione di 0.5 secondi per far vedere l'animazione
+        }
+      }
+    });
+
+    // Funzione per generare un ID univoco
+    function generateUniqueId() {
+      return "_" + Math.random().toString(36).substr(2, 9);
+    }
+
+    eliminaBTN.addEventListener("click", function () {
+      const newsListElement = document.getElementById("news-lista");
+      newsListElement.innerHTML = ""; // Rimuovi tutti gli elementi figlio
+    });
+
+    inviaNotizia.addEventListener("click", function () {
+      const newsListElement = document.getElementById("news-lista");
+      const newsElements = newsListElement.querySelectorAll(".card");
+
+      // Creazione di un oggetto FormData per passare i dati del modulo al server
+      const formData = new FormData(document.getElementById("news-form"));
+
+      // Invia la notizia all'amministratore
+      inviaNotiziaAllAmministratore(formData);
+    });
+
+    // Funzione per inviare la notizia all'amministratore
+    function inviaNotiziaAllAmministratore(formData) {
+      // Effettua una richiesta AJAX per inviare i dati al server
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "bho.php");
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          // Se la richiesta ha avuto successo, mostra un messaggio di conferma
+          alert("Notizia inviata all'amministratore con successo!");
+        } else {
+          // Se c'è stato un errore nella richiesta, mostra un messaggio di errore
+          alert("Si è verificato un errore durante l'invio della notizia.");
+        }
+      };
+      xhr.send(formData); // Invia i dati del modulo al server
+    }
+  </script>
+</html>

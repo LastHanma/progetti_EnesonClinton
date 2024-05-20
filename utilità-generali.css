@@ -1,0 +1,45 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+
+.logo {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: bold;
+    
+}
+
+.logoAi {
+    color: #566b78;
+}
+.social-icons a {
+    color: #ffffff;
+
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+/* Aggiungi un margine inferiore per separare le icone dal testo */
+.social-icons {
+    margin-bottom: 10px;
+}
+.paragrafo {
+    color: #566b78;
+    margin-bottom: 20px;
+}
+
+.contenitore {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#storia {
+    margin-bottom: 50px;
+}
+.titoliSezioni{
+    font-size: 2.5rem;
+    font-weight:bold;
+}
+.informativa_home{
+    font-weight: bold;
+}
